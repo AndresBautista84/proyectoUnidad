@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Urban Beat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+      body {
+       padding-top: 70px;
+       padding-bottom: 20px;
+      }
+
+      .logo-text {
+       font-family: 'Bungee', cursive;
+       font-size: 30px;
+       line-height: 1;
+       color: #3f4f74;
+       margin-left: 25px;
+      }
+
+      .eslogan-text {
+       font-size: 14px;
+       line-height: 1;
+       margin-top: -2px; 
+       margin-left: 27px;
+       color: #666;  
+      }
+
+      .iniciar-link {
+       font-size: 16px;
+       margin-right: 35px;
+       color: black
+      }
+
+      .registrar-link {
+       font-size: 16px;
+       margin-right: 50px;
+       color: black
+      }
+
+      .carrito-image {
+        margin-right: 50px;
+      }
+
+      .estrella-image {
+        margin-left: 65px;
+        margin-top: 65px;
+      }
+
+      .nav-pills {
+       background-color: #e5e5e5;
+       border-radius: 15px;
+       padding: 5px 10px;
+       margin-top: 20px;
+       margin-left: 50px;
+       display: inline-flex;
+      }
+
+      .nav-pills .nav-link {
+       color: #333;
+       font-weight: bold;
+       border-radius: 15px;
+       padding: 6px 65px;
+       margin: 0 3px;
+      }
+
+       .nav-pills .nav-link.active {
+        background-color: #3d4c6e;
+        color: #fff;
+        font-weight: bold;
+        padding: 6px 65px;
+       }
+
+       .bienvenida-container {
+        background-color: #33405e;
+        margin-left: 50px;
+        margin-right: 275px;
+        margin-top: 25px;
+        padding: 35px 50px;
+        border-radius: 15px;
+       }
+
+       .bienvenida-text {
+        font-family: 'Caudex', serif;
+        font-size: 40px;
+        line-height: 1;
+        color: #ffffff;
+        margin-left: 15px;
+       }
+
+       .descripcion-text {
+        font-size: 16px;
+        line-height: 1;
+        color: #ffffff;
+        margin-left: 15px;
+       }
+
+       .descripcion-texts {
+        font-size: 16px;
+        margin-top: -15px;
+        color: #ffffff;
+        margin-left: 15px;
+       }
+
+       .search-box {
+        display: flex;
+        margin-left: 15px;
+        gap: 8px; 
+        margin-top: 30px;
+       }
+
+       .search-box input {
+        width: 300px;      
+        padding: 6px 10px;  
+        border-radius: 8px;  
+        margin-top: 5px;
+        border: 1px solid #ccc; 
+        font-size: 14px;     
+        transition: all 0.3s ease; 
+       }
+
+       .search-box input:focus {
+        border-color: #1e2a44; 
+        outline: none; 
+        box-shadow: 0 0 5px rgba(30, 42, 68, 0.4);
+       }
+
+       .search-box button {
+        background-color: #ffffff;
+        color: white;             
+        border: none;
+        border-radius: 8px;
+        padding: 6px 9px;
+        margin-top: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+       }
+
+       .search-box button:hover {
+        background-color: #cfcfcf;
+       }
+
+       #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+       }
+
+       #preloader img {
+        width: 400px;
+       }
+
+       .carousel-control-prev-icon,
+       .carousel-control-next-icon {
+        background: none;
+       }
+
+       .carousel-control-prev::after {
+        content: "<";
+        font-size: 50px;
+        color: #666;
+       }
+
+       .carousel-control-next::after {
+        content: ">";
+        font-size: 50px;
+        color: #666;
+       }
+
+       .carousel-control-prev,
+       .carousel-control-next {
+        top: 25%;
+        transform: translateY(-25%);
+        width: 5%;       
+        height: auto;
+        padding: 0;   
+        margin-left: 45px;
+        margin-right: 70px;         
+        outline: none;
+        box-shadow: none;
+        border: none;
+       }
+
+       .carousel-control-prev:focus,
+       .carousel-control-next:focus {
+        outline: none;
+        box-shadow: none;
+       }
+
+       .carousel-control-prev,
+       .carousel-control-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        height: auto;
+        outline: none;
+        box-shadow: none;
+        border: none;
+       }
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+     <div class="d-flex flex-column">
+        <span class="logo-text">Urban Beat</span>
+    <span class="eslogan-text">Feel the Rhythm</span>
+  </div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  </ul>
+  <ul class="navbar-nav mb-2 mb-lg-0">
+    <li class="iniciar-link">
+      <a class="nav-link" href="Inicio Sesion Usuario.html">Iniciar sesión</a>
+    </li>
+  </ul>
+    <ul class="navbar-nav mb-2 mb-lg-0">
+    <li class="registrar-link">
+      <a class="nav-link" href="Registro Completo.html">Registrarse</a>
+    </li>
+  </ul>
+    <ul class="navbar-nav mb-2 mb-lg-0">
+  <li class="carrito-image">
+  <a class="nav-link" href="Carrito.html">
+    <img src="img/Carrito.png" alt="Ícono" width="35" height="35">
+  </a>
+  </li>
+  </ul>
+</ul>
+</div>
+  </div>
+</nav>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="Inicio.html">Inicio</a>
+  </li>
+  <li class="nav-item">
+    <li><button class="nav-link" onclick="location.href='mujeres.html'">Mujeres</button></li>
+  </li>
+  <li class="nav-item">
+   <li><button class="nav-link" onclick="location.href='hombre.html'">Hombres</button></li>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="Quienes somos.html">¿Quienes somos?</a>
+  </li>
+</ul>
+<div class="bienvenida-container">
+ <p></p><span class="bienvenida-text">¡Bienvenido a Urban Beat!</span>
+  <p><p><span class="descripcion-text">Con Urban Beat podrás descubir las últimas tendencias en moda urbana, con calidad, comodidad y estilo</span></p>
+    <p class="descripcion-texts">en cada una de las prendas que ofrecemos.</p>
+  <form class="search-box" role="search">
+    <input type="search" placeholder="Busca una prenda..." aria-label="Search">
+    <button type="submit">🔍</button>
+  </form>
+</div>
+
+<div class="container-prendas">
+  <h4 class="estrella-image">
+    <img src="img/Estrella.png" alt="Ícono" width="30" height="30">
+    Productos Destacados
+  </h4>
+  <p></p><div id="productosCarrusel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center gap-3">
+          <div class="card" style="width: 14rem;">
+            <img src="img/Blusa.jpg" class="card-img-top" alt="Blusa">
+            <div class="card-body">
+              <h6 class="card-title">Blusa rayada</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q200.00</p>
+            </div>
+          </div>
+          <div class="card" style="width: 14rem;">
+            <img src="img/Shorts.jpeg" class="card-img-top" alt="Shorts">
+            <div class="card-body">
+              <h6 class="card-title">Shorts estrellados</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q250.00</p>
+            </div>
+          </div>
+          <div class="card" style="width: 14rem;">
+            <img src="img/Conjunto.jpeg" class="card-img-top" alt="Conjunto">
+            <div class="card-body">
+              <h6 class="card-title">Conjunto de pantalón y blusa negra</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q550.00</p>
+            </div>
+          </div>
+          <div class="card" style="width: 14rem;">
+            <img src="img/Falda.jpg" class="card-img-top" alt="Falda">
+            <div class="card-body">
+              <h6 class="card-title">Falda</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q250.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center gap-3">
+          <div class="card" style="width: 14rem;">
+            <img src="img/Sueter.jpeg" class="card-img-top" alt="Suéter a rayas">
+            <div class="card-body">
+              <h6 class="card-title">Suéter a rayas</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q250.00</p>
+            </div>
+          </div>
+          <div class="card" style="width: 14rem;">
+            <img src="img/Sueter rojo.jpg" class="card-img-top" alt="Sueter rojo">
+            <div class="card-body">
+              <h6 class="card-title">Sueter rojo</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q250.00</p>
+            </div>
+          </div>
+          <div class="card" style="width: 14rem;">
+            <img src="img/Camisa.jpeg" class="card-img-top" alt="Camisa">
+            <div class="card-body">
+              <h6 class="card-title">Camisa con diseño</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q200.00</p>
+            </div>
+          </div>
+          <div class="card" style="width: 14rem;">
+            <img src="img/Cardigan.jpg" class="card-img-top" alt="Cardigan a rayas">
+            <div class="card-body">
+              <h6 class="card-title">Cardigan a rayas</h6>
+              <p class="card-text">Disponible en múltiples tallas</p>
+              <p class="fw-bold">Q250.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#productosCarrusel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productosCarrusel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+<p></p>
+<script>
+  window.addEventListener("load", function(){
+    setTimeout(function(){
+      const preloader = document.getElementById("preloader");
+      preloader.style.transition = "opacity 1s";
+      preloader.style.opacity = 0;
+      setTimeout(function(){
+        preloader.style.display = "none";
+      }, 1000);
+    }, 1000);
+  });
+</script>
+<div id="preloader">
+    <img src="img/Logo.png" alt="Cargando..."> 
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
+

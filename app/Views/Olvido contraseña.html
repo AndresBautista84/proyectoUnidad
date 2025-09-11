@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Beat - Recuperar Contraseña</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        header {
+            text-align: left;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .logo p {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            color: #666;
+        }
+
+        .form-container {
+            background-color: #d3d3d3;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .form-container p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Urban Beat</h1>
+            <p>Moda urbana</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Recuerda tu contraseña</h2>
+            <p>Ingresa tu Usuario</p>
+            <form id="password-reset-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Usuario" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Contraseña Nueva" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Repetir Contraseña" required>
+                </div>
+                <button type="submit" class="btn">Cambiar contraseña</button>
+            </form>
+            <a href="Inicio Sesion Usuario.html" style="display:block; margin-top:20px; color:#007bff; text-decoration:none;">Volver al inicio de sesion</a>
+            <a href="Inicio Colaborador .html" style="display:block; margin-top:20px; color:#007bff; text-decoration:none;">Volver al inicio de sesion colaborador</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('password-reset-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+            alert('Se ha establecido tu nueva contraseña, intenta iniciar sesión de nuevo');
+        });
+    </script>
+
+</body>
+</html>
