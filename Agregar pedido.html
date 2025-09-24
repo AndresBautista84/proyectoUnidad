@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Beat - Agregar Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .logo p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .action-button {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .action-button:hover {
+            background-color: #34495e;
+        }
+        .add-btn {
+            background-color: #34495e;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-btn:hover {
+            background-color: #2c3e50;
+        }
+        .table-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #347dc3;
+            color: #fff;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+        .button-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .button-section .add-btn {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <h1>Urban Beat</h1>
+                <p>Moda urbana</p>
+            </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="action-button">Agregar Pedido</div>
+            <div class="button-section">
+                <button class="add-btn" onclick="agregarPedido()">Agregar</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Correo del cliente</th>
+                        <th>Ropa solicitada</th>
+                        <th>Dirección</th>
+                        <th>Fecha de entrega estimada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td></td><td></td><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function agregarPedido() {
+            alert("Se agregó el pedido correctamente.");
+        }
+    </script>
+
+</body>
+</html>
