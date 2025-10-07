@@ -9,8 +9,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-       padding-top: 2px;
+       padding-top: 70px;
        padding-bottom: 20px;
+      }
+
+      .navbar {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       z-index: 1030;
+       background-color: #f8f9fa;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       align-items: center;
+       min-height: 65px; 
       }
 
       .logo-text {
@@ -39,16 +53,7 @@
        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
 
-     .login-container h3 {
-       font-weight: bold;
-       text-align: center;
-       font-family: 'Caudex', serif;
-       font-size: 40px;
-       line-height: 1;
-       color: #3d4c6e;
-      }
-
-       .login-text {
+      .login-text {
        font-weight: bold;
        text-align: center;
        font-family: 'Caudex', serif;
@@ -91,8 +96,11 @@
        text-align: center;   
        }
 
+      .ingresar-btn:hover {
+       background-color: #3d4c6ebe;
+      }
 
-  </style>
+   </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -101,16 +109,20 @@
         <span class="logo-text">Urban Beat</span>
     <span class="eslogan-text">Feel the Rhythm</span>
   </div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  </ul>
 </ul>
+</div>
   </div>
 </nav>
   <div class="login-container">      
     <p class="login-text">¡Bienvenido, usuario!
     <p class="text-center">Registrate para no perderte nada</p>
-    <form id="registerForm">
-      <input type="text" id="username" class="form-control" placeholder="Usuario" required />
-      <input type="password" id="password" class="form-control" placeholder="Contraseña" required />
-      <button type="submit" class="ingresar-btn">Registrarse</button>
+      <form id="registerForm">
+  <input type="text" id="username" class="form-control" placeholder="Usuario" required/>
+  <input type="password" id="password" class="form-control" placeholder="Contraseña" required/>
+  <button type="submit" class="ingresar-btn">Registrarse</button>
       <a href="Inicio Sesion Usuario.html" class="forgot-link">¿Ya tienes  una cuenta? Inicia Sesion </a>
     
     </form>
@@ -143,8 +155,7 @@
         errorMessage.style.display = 'block';
       } else {
         successMessage.style.display = 'block';
-        // Redirige a otra página después de 1.5 segundos
-        setTimeout(() => {
+         setTimeout(() => {
           window.location.href = 'inicio.html';
         }, 1500);
       }

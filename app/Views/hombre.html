@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -84,7 +82,84 @@
         font-family: 'Caudex', serif;
         font-size: 30px;
         color: #3d4c6e;
-       }
+      }
+
+      .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1000;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+      }
+
+      .modal-content {
+        background: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 320px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        animation: aparecer 0.3s ease;
+      }
+
+      @keyframes aparecer {
+        from {transform: scale(0.7); opacity: 0;}
+        to {transform: scale(1); opacity: 1;}
+      }
+
+      .modal-content h3 {
+        margin-bottom: 15px;
+      }
+
+      .modal-content label {
+        display: block;
+        margin: 10px 0 5px;
+        text-align: left;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .modal-content select,
+      .modal-content input {
+        width: 100%;
+        padding: 6px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .confirmar-btn {
+        background-color: #3d4c6e;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        margin-top: 15px;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .confirmar-btn:hover {
+        background-color: #2c3852;
+      }
+
+      .cerrar {
+        float: right;
+        font-size: 20px;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .agregar-btn {
+        background-color: #3d4c6e;
+        color: #fff;
+        border-radius: 5px;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+      }
 
     </style>
   </head>
@@ -137,37 +212,44 @@
 <span class="Moda-text">Moda Masculina</span>
 <p class="Modad-text">Descubre nuestra colección de moda masculina, con prendas que combinan estilo urbano, confort y versatilidad<br>para destacar en cualquier momento.
     <p class="Moda-text">Catálogo</p>
-<div class="d-flex justify-content-center gap-3">
+        <div class="d-flex justify-content-center gap-3">
           <div class="card" style="width: 14rem;">
-            <img src="img/Sueter rojo.jpg" class="card-img-top" alt="Sueter rojo">
-            <div class="card-body">
-              <h6 class="card-title">Sueter rojo</h6>
-              <p class="card-text">Disponible en múltiples tallas</p>
-              <p class="fw-bold">Q250.00</p>
-            </div>
+          <img src="img/Sueter rojo.jpg" class="card-img-top" alt="Sueter rojo">
+          <div class="card-body">
+            <h6 class="card-title">Sueter rojo</h6>
+            <p class="card-text">Disponible en múltiples tallas</p>
+            <p class="fw-bold">Q250.00</p>
+            <button class="agregar-btn" 
+              onclick="abrirModal('Sueter rojo', ['Rojo'], ['S','M','L'])">
+              Agregar al carrito
+            </button>
           </div>
-          <div class="card" style="width: 14rem;">
-            <img src="img/Camisa blanca.jpg" class="card-img-top" alt="Camisa blanca oversize">
-            <div class="card-body">
-              <h6 class="card-title">Camisa blanca oversize</h6>
-              <p class="card-text">Disponible en múltiples tallas</p>
-              <p class="fw-bold">Q200.00</p>
-            </div>
+        </div>
+        <div class="card" style="width: 14rem;">
+          <img src="img/Camisa blanca.jpg" class="card-img-top" alt="Camisa blanca oversize">
+          <div class="card-body">
+            <h6 class="card-title">Camisa blanca oversize</h6>
+            <p class="card-text">Disponible en múltiples tallas</p>
+            <p class="fw-bold">Q200.00</p>
+            <button class="agregar-btn" onclick="abrirModalB()">Agregar al carrito</button>
           </div>
-          <div class="card" style="width: 14rem;">
-            <img src="img/Pantalon cargo.png" class="card-img-top" alt="Pantalon cargo">
-            <div class="card-body">
-              <h6 class="card-title">Pantalon cargo</h6>
-              <p class="card-text">Disponible en múltiples tallas</p>
-              <p class="fw-bold">Q200.00</p>
-            </div>
+        </div>
+        <div class="card" style="width: 14rem;">
+          <img src="img/Pantalon cargo.png" class="card-img-top" alt="Pantalon cargo">
+          <div class="card-body">
+            <h6 class="card-title">Pantalon cargo</h6>
+            <p class="card-text">Disponible en múltiples tallas</p>
+            <p class="fw-bold">Q200.00</p>
+            <button class="agregar-btn" onclick="abrirModalCargo()">Agregar al carrito</button>
           </div>
+        </div>
           <div class="card" style="width: 14rem;">
             <img src="img/Camisa con diseño.jpg" class="card-img-top" alt="Camisa con diseño">
             <div class="card-body">
               <h6 class="card-title">Camisa con diseño</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q250.00</p>
+              <button class="agregar-btn" onclick="abrirModalCamisaDiseno()">Agregar al carrito</button>
             </div>
           </div>
            <div class="card" style="width: 14rem;">
@@ -176,6 +258,7 @@
               <h6 class="card-title">Chaleco</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q150.00</p>
+              <button class="agregar-btn" onclick="abrirModalChaleco()">Agregar al carrito</button>
             </div>
           </div>        
         </div>
@@ -187,6 +270,7 @@
               <h6 class="card-title">Pantalon de lona</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q250.00</p>
+              <button class="agregar-btn" onclick="abrirModalLona()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -195,6 +279,7 @@
               <h6 class="card-title">Sueter beige</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q200.00</p>
+              <button class="agregar-btn" onclick="abrirModalSueter()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -203,6 +288,7 @@
               <h6 class="card-title">Pantalon de tela</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q250.00</p>
+              <button class="agregar-btn" onclick="abrirModalPantalonTela()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -211,6 +297,7 @@
               <h6 class="card-title">Saco gris</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q250.00</p>
+              <button class="agregar-btn" onclick="abrirModalSacoGris()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -219,17 +306,19 @@
               <h6 class="card-title">Camisa verde</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q200.00</p>
+              <button class="agregar-btn" onclick="abrirModalCamisaVerde()">Agregar al carrito</button>
             </div>
           </div>          
         </div>
        <p></p>
- <div class="d-flex justify-content-center gap-3">
+        <div class="d-flex justify-content-center gap-3">
              <div class="card" style="width: 14rem;">
             <img src="img/Baggy Jeans.jpg" class="card-img-top" alt="Baggy Jeans">
             <div class="card-body">
               <h6 class="card-title">Baggy Jeans</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q200.00</p>
+              <button class="agregar-btn" onclick="abrirModalJeans()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -238,6 +327,7 @@
               <h6 class="card-title">Suéter a rayas</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q250.00</p>
+              <button class="agregar-btn" onclick="abrirModalSueterRayas()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -246,6 +336,7 @@
               <h6 class="card-title">Camisa amarilla</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q200.00</p>
+              <button class="agregar-btn" onclick="abrirModalCamisaAmarilla()">Agregar al carrito</button>
             </div>
           </div>
           <div class="card" style="width: 14rem;">
@@ -254,15 +345,656 @@
               <h6 class="card-title">Cardigan a rayas</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q250.00</p>
+              <button class="agregar-btn" onclick="abrirModalCardigan()">Agregar al carrito</button>
             </div>
           </div>
         <div class="card" style="width: 14rem;">
             <img src="img/Sudadera.jpg" class="card-img-top" alt="Sudadera">
             <div class="card-body">
-              <h6 class="card-title">Sudadera</h6>
+              <h6 class="card-title">Sudadera azul y gris</h6>
               <p class="card-text">Disponible en múltiples tallas</p>
               <p class="fw-bold">Q300.00</p>
+              <button class="agregar-btn" onclick="abrirModalSudadera()">Agregar al carrito</button>
             </div>
           </div>          
         </div>
+
+<div id="miModal" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <h3 id="modalTitulo"></h3>
+    <div id="opciones"></div>
+    <button class="confirmar-btn" onclick="confirmarProducto()">Confirmar</button>
+  </div>
+</div>
+<div id="modalBlanca" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalB()">&times;</span>
+    <h3>Camisa blanca oversize</h3>
+    <input type="hidden" id="colorBlanca" value="Blanco">
+
+    <label for="tallaBlanca">Talla</label>
+    <select id="tallaBlanca">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantBlanca">Cantidad</label>
+    <input type="number" id="cantBlanca" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarBlanca()">Confirmar</button>
+  </div>
+</div>
+<div id="modalCargo" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalCargo()">&times;</span>
+    <h3>Pantalón cargo</h3>
+
+    <label for="colorCargo">Color</label>
+    <select id="colorCargo">
+      <option value="Blanco">Blanco</option>
+      <option value="Gris">Gris</option>
+      <option value="Beige">Beige</option>
+      <option value="Negro">Negro</option>
+      <option value="Azul">Azul</option>
+    </select>
+
+    <label for="tallaCargo">Talla</label>
+    <select id="tallaCargo">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantCargo">Cantidad</label>
+    <input type="number" id="cantCargo" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarCargo()">Confirmar</button>
+  </div>
+</div>
+<div id="modalCamisaDiseno" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalCamisaDiseno()">&times;</span>
+    <h3>Camisa con diseño</h3>
+
+    <label for="colorCamisaDiseno">Color</label>
+    <select id="colorCamisaDiseno">
+      <option value="Rojo">Rojo</option>
+      <option value="Negro">Negro</option>
+      <option value="Blanco">Blanco</option>
+      <option value="Amarillo">Amarillo</option>
+      <option value="Verde">Verde</option>
+      <option value="Azul">Azul</option>
+      <option value="Morado">Morado</option>
+    </select>
+
+    <label for="tallaCamisaDiseno">Talla</label>
+    <select id="tallaCamisaDiseno">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantCamisaDiseno">Cantidad</label>
+    <input type="number" id="cantCamisaDiseno" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarCamisaDiseno()">Confirmar</button>
+  </div>
+</div>
+<div id="modalChaleco" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalChaleco()">&times;</span>
+    <h3>Chaleco</h3>
+
+    <label for="colorChaleco">Color</label>
+    <select id="colorChaleco">
+      <option value="Marrón">Marrón</option>
+      <option value="Azul">Azul</option>
+      <option value="Rojo">Rojo</option>
+      <option value="Negro">Negro</option>
+      <option value="Verde">Verde</option>
+    </select>
+
+    <label for="tallaChaleco">Talla</label>
+    <select id="tallaChaleco">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantChaleco">Cantidad</label>
+    <input type="number" id="cantChaleco" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarChaleco()">Confirmar</button>
+  </div>
+</div>
+<div id="modalLona" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalLona()">&times;</span>
+    <h3>Pantalón de lona</h3>
+
+    <label for="colorLona">Color</label>
+    <select id="colorLona">
+      <option value="Celeste">Celeste</option>
+      <option value="Azul">Azul</option>
+      <option value="Azul oscuro">Azul oscuro</option>
+      <option value="Gris">Gris</option>
+    </select>
+
+    <label for="tallaLona">Talla</label>
+    <select id="tallaLona">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantLona">Cantidad</label>
+    <input type="number" id="cantLona" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarLona()">Confirmar</button>
+  </div>
+</div>
+<div id="modalSueter" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalSueter()">&times;</span>
+    <h3>Suéter beige</h3>
+
+    <label for="tallaSueter">Talla</label>
+    <select id="tallaSueter">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantSueter">Cantidad</label>
+    <input type="number" id="cantSueter" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarSueter()">Confirmar</button>
+  </div>
+</div>
+<div id="modalPantalonTela" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalPantalonTela()">&times;</span>
+    <h3>Pantalón de tela</h3>
+
+    <label for="colorPantalonTela">Color</label>
+    <select id="colorPantalonTela">
+      <option value="Azul">Azul</option>
+      <option value="Azul oscuro">Azul oscuro</option>
+      <option value="Beige">Beige</option>
+    </select>
+
+    <label for="tallaPantalonTela">Talla</label>
+    <select id="tallaPantalonTela">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantPantalonTela">Cantidad</label>
+    <input type="number" id="cantPantalonTela" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarPantalonTela()">Confirmar</button>
+  </div>
+</div>
+<div id="modalSacoGris" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalSacoGris()">&times;</span>
+    <h3>Saco gris</h3>
+    <input type="hidden" id="colorSacoGris" value="Gris">
+
+    <label for="tallaSacoGris">Talla</label>
+    <select id="tallaSacoGris">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantSacoGris">Cantidad</label>
+    <input type="number" id="cantSacoGris" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarSacoGris()">Confirmar</button>
+  </div>
+</div>
+<div id="modalCamisaVerde" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalCamisaVerde()">&times;</span>
+    <h3>Camisa verde</h3>
+    <input type="hidden" id="colorCamisaVerde" value="Verde">
+
+    <label for="tallaCamisaVerde">Talla</label>
+    <select id="tallaCamisaVerde">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantCamisaVerde">Cantidad</label>
+    <input type="number" id="cantCamisaVerde" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarCamisaVerde()">Confirmar</button>
+  </div>
+</div>
+<div id="modalJeans" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalJeans()">&times;</span>
+    <h3>Baggy Jeans</h3>
+
+    <label for="colorJeans">Color</label>
+    <select id="colorJeans">
+      <option value="Azul">Azul</option>
+      <option value="Celeste">Celeste</option>
+      <option value="Negro">Negro</option>
+      <option value="Gris">Gris</option>
+    </select>
+
+    <label for="tallaJeans">Talla</label>
+    <select id="tallaJeans">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantJeans">Cantidad</label>
+    <input type="number" id="cantJeans" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarJeans()">Confirmar</button>
+  </div>
+</div>
+<div id="modalSueterRayas" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalSueterRayas()">&times;</span>
+    <h3>Suéter a rayas</h3>
+
+    <label for="colorSueterRayas">Color</label>
+    <select id="colorSueterRayas">
+      <option value="Azul y celeste">Azul y celeste</option>
+      <option value="Blanco y negro">Blanco y negro</option>
+      <option value="Naranja y amarillo">Naranja y amarillo</option>
+      <option value="Verde oscuro y verde claro">Verde oscuro y verde claro</option>
+      <option value="Rojo y rosado">Rojo y rosado</option>
+    </select>
+
+    <label for="tallaSueterRayas">Talla</label>
+    <select id="tallaSueterRayas">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantSueterRayas">Cantidad</label>
+    <input type="number" id="cantSueterRayas" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarSueterRayas()">Confirmar</button>
+  </div>
+</div>
+<div id="modalCamisaAmarilla" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalCamisaAmarilla()">&times;</span>
+    <h3>Camisa amarilla</h3>
+    <input type="hidden" id="colorCamisaAmarilla" value="Amarillo">
+
+    <label for="tallaCamisaAmarilla">Talla</label>
+    <select id="tallaCamisaAmarilla">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantCamisaAmarilla">Cantidad</label>
+    <input type="number" id="cantCamisaAmarilla" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarCamisaAmarilla()">Confirmar</button>
+  </div>
+</div>
+<div id="modalCardigan" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalCardigan()">&times;</span>
+    <h3>Cardigan a rayas</h3>
+
+    <label for="colorCardigan">Color</label>
+    <select id="colorCardigan">
+      <option value="Blanco y negro">Blanco y negro</option>
+      <option value="Negro y beige">Negro y beige</option>
+      <option value="Café y beige">Café y beige</option>
+      <option value="Café y blanco">Café y blanco</option>
+    </select>
+
+    <label for="tallaCardigan">Talla</label>
+    <select id="tallaCardigan">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantCardigan">Cantidad</label>
+    <input type="number" id="cantCardigan" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarCardigan()">Confirmar</button>
+  </div>
+</div>
+<div id="modalSudadera" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalSudadera()">&times;</span>
+    <h3>Sudadera</h3>
+    <input type="hidden" id="colorSudadera" value="Azul y gris">
+
+    <label for="tallaSudadera">Talla</label>
+    <select id="tallaSudadera">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <label for="cantSudadera">Cantidad</label>
+    <input type="number" id="cantSudadera" value="1" min="1">
+
+    <button class="confirmar-btn" onclick="confirmarSudadera()">Confirmar</button>
+  </div>
+</div>
+
+
+<script>
+let productoActual = {};
+function abrirModal(nombre, colores, tallas) {
+  productoActual = {nombre, colores, tallas};
+
+  document.getElementById("modalTitulo").innerText = nombre;
+
+  let opcionesHTML = "";
+
+  if (colores.length > 1) {
+    opcionesHTML += `<label>Color</label><select id="colorSel">` +
+      colores.map(c => `<option value="${c}">${c}</option>`).join("") +
+      `</select>`;
+  } else if (colores.length === 1) {
+    opcionesHTML += `<input type="hidden" id="colorSel" value="${colores[0]}">`;
+  }
+
+  if (tallas.length > 1) {
+    opcionesHTML += `<label>Talla</label><select id="tallaSel">` +
+      tallas.map(t => `<option value="${t}">${t}</option>`).join("") +
+      `</select>`;
+  } else if (tallas.length === 1) {
+    opcionesHTML += `<input type="hidden" id="tallaSel" value="${tallas[0]}">`;
+  }
+
+  opcionesHTML += `<label>Cantidad</label><input type="number" id="cantSel" value="1" min="1">`;
+
+  document.getElementById("opciones").innerHTML = opcionesHTML;
+
+  document.getElementById("miModal").style.display = "block";
+}
+
+function cerrarModal() {
+  document.getElementById("miModal").style.display = "none";
+}
+
+function confirmarProducto() {
+  const color = document.getElementById("colorSel")?.value || "";
+  const talla = document.getElementById("tallaSel")?.value || "";
+  const cantidad = document.getElementById("cantSel")?.value || "1";
+
+  alert(`¡Agregado al carrito!\nProducto: ${productoActual.nombre}` +
+        (color ? `\nColor: ${color}` : "") +
+        (talla ? `\nTalla: ${talla}` : "") +
+        `\nCantidad: ${cantidad}`);
+
+  cerrarModal();
+}
+</script>
+<script>
+function abrirModalCargo() {
+  document.getElementById("modalCargo").style.display = "block";
+}
+
+function cerrarModalCargo() {
+  document.getElementById("modalCargo").style.display = "none";
+}
+
+function confirmarCargo() {
+  const color = document.getElementById("colorCargo").value;
+  const talla = document.getElementById("tallaCargo").value;
+  const cantidad = document.getElementById("cantCargo").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Pantalón cargo\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalCargo();
+}
+</script>
+<script>
+function abrirModalB() {
+  document.getElementById("modalBlanca").style.display = "block";
+}
+
+function cerrarModalB() {
+  document.getElementById("modalBlanca").style.display = "none";
+}
+
+function confirmarBlanca() {
+  const talla = document.getElementById("tallaBlanca").value;
+  const cantidad = document.getElementById("cantBlanca").value;
+  const color = document.getElementById("colorBlanca").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Camisa blanca oversize\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalB();
+}
+</script>
+<script>
+function abrirModalChaleco() {
+  document.getElementById("modalChaleco").style.display = "block";
+}
+
+function cerrarModalChaleco() {
+  document.getElementById("modalChaleco").style.display = "none";
+}
+
+function confirmarChaleco() {
+  const color = document.getElementById("colorChaleco").value;
+  const talla = document.getElementById("tallaChaleco").value;
+  const cantidad = document.getElementById("cantChaleco").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Chaleco\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalChaleco();
+}
+</script>
+<script>
+function abrirModalLona() {
+  document.getElementById("modalLona").style.display = "block";
+}
+
+function cerrarModalLona() {
+  document.getElementById("modalLona").style.display = "none";
+}
+
+function confirmarLona() {
+  const color = document.getElementById("colorLona").value;
+  const talla = document.getElementById("tallaLona").value;
+  const cantidad = document.getElementById("cantLona").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Pantalón de lona\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalLona();
+}
+</script>
+<script>
+function abrirModalSueter() {
+  document.getElementById("modalSueter").style.display = "block";
+}
+
+function cerrarModalSueter() {
+  document.getElementById("modalSueter").style.display = "none";
+}
+
+function confirmarSueter() {
+  const talla = document.getElementById("tallaSueter").value;
+  const cantidad = document.getElementById("cantSueter").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Suéter beige\nColor: Beige\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalSueter();
+}
+</script>
+<script>
+function abrirModalCamisaDiseno() {
+  document.getElementById("modalCamisaDiseno").style.display = "block";
+}
+
+function cerrarModalCamisaDiseno() {
+  document.getElementById("modalCamisaDiseno").style.display = "none";
+}
+
+function confirmarCamisaDiseno() {
+  const color = document.getElementById("colorCamisaDiseno").value;
+  const talla = document.getElementById("tallaCamisaDiseno").value;
+  const cantidad = document.getElementById("cantCamisaDiseno").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Camisa con diseño\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalCamisaDiseno();
+}
+</script>
+<script>
+function abrirModalPantalonTela() {
+  document.getElementById("modalPantalonTela").style.display = "block";
+}
+
+function cerrarModalPantalonTela() {
+  document.getElementById("modalPantalonTela").style.display = "none";
+}
+
+function confirmarPantalonTela() {
+  const color = document.getElementById("colorPantalonTela").value;
+  const talla = document.getElementById("tallaPantalonTela").value;
+  const cantidad = document.getElementById("cantPantalonTela").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Pantalón de tela\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalPantalonTela();
+}
+</script>
+<script>
+function abrirModalSacoGris() {
+  document.getElementById("modalSacoGris").style.display = "block";
+}
+
+function cerrarModalSacoGris() {
+  document.getElementById("modalSacoGris").style.display = "none";
+}
+
+function confirmarSacoGris() {
+  const talla = document.getElementById("tallaSacoGris").value;
+  const cantidad = document.getElementById("cantSacoGris").value;
+  const color = document.getElementById("colorSacoGris").value;
+
+
+  alert(`¡Agregado al carrito!\nProducto: Saco gris\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalSacoGris();
+}
+</script>
+<script>
+function abrirModalCamisaVerde() {
+  document.getElementById("modalCamisaVerde").style.display = "block";
+}
+
+function cerrarModalCamisaVerde() {
+  document.getElementById("modalCamisaVerde").style.display = "none";
+}
+
+function confirmarCamisaVerde() {
+  const color = document.getElementById("colorCamisaVerde").value;
+  const talla = document.getElementById("tallaCamisaVerde").value;
+  const cantidad = document.getElementById("cantCamisaVerde").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Camisa verde\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalCamisaVerde();
+}
+</script>
+<script>
+function abrirModalJeans() {
+  document.getElementById("modalJeans").style.display = "block";
+}
+function cerrarModalJeans() {
+  document.getElementById("modalJeans").style.display = "none";
+}
+function confirmarJeans() {
+  const color = document.getElementById("colorJeans").value;
+  const talla = document.getElementById("tallaJeans").value;
+  const cantidad = document.getElementById("cantJeans").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Baggy Jeans\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalJeans();
+}
+</script>
+<script>
+function abrirModalSueterRayas() {
+  document.getElementById("modalSueterRayas").style.display = "block";
+}
+function cerrarModalSueterRayas() {
+  document.getElementById("modalSueterRayas").style.display = "none";
+}
+function confirmarSueterRayas() {
+  const color = document.getElementById("colorSueterRayas").value;
+  const talla = document.getElementById("tallaSueterRayas").value;
+  const cantidad = document.getElementById("cantSueterRayas").value;
+
+  alert(`¡Agregado al carrito!\nProducto: Suéter a rayas\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalSueterRayas();
+}
+</script>
+<script>
+function abrirModalCamisaAmarilla() {
+  document.getElementById("modalCamisaAmarilla").style.display = "block";
+}
+function cerrarModalCamisaAmarilla() {
+  document.getElementById("modalCamisaAmarilla").style.display = "none";
+}
+function confirmarCamisaAmarilla() {
+  const color = document.getElementById("colorCamisaAmarilla").value;
+  const talla = document.getElementById("tallaCamisaAmarilla").value;
+  const cantidad = document.getElementById("cantCamisaAmarilla").value;
+  alert(`¡Agregado al carrito!\nProducto: Camisa amarilla\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalCamisaAmarilla();
+}
+</script>
+<script>
+function abrirModalCardigan() {
+  document.getElementById("modalCardigan").style.display = "block";
+}
+function cerrarModalCardigan() {
+  document.getElementById("modalCardigan").style.display = "none";
+}
+function confirmarCardigan() {
+  const color = document.getElementById("colorCardigan").value;
+  const talla = document.getElementById("tallaCardigan").value;
+  const cantidad = document.getElementById("cantCardigan").value;
+  alert(`¡Agregado al carrito!\nProducto: Cardigan a rayas\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalCardigan();
+}
+</script>
+<script>
+function abrirModalSudadera() {
+  document.getElementById("modalSudadera").style.display = "block";
+}
+function cerrarModalSudadera() {
+  document.getElementById("modalSudadera").style.display = "none";
+}
+function confirmarSudadera() {
+  const color = document.getElementById("colorSudadera").value;
+  const talla = document.getElementById("tallaSudadera").value;
+  const cantidad = document.getElementById("cantSudadera").value;
+  alert(`¡Agregado al carrito!\nProducto: Sudadera\nColor: ${color}\nTalla: ${talla}\nCantidad: ${cantidad}`);
+  cerrarModalSudadera();
+}
+</script>
   </body>

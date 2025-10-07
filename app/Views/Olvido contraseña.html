@@ -1,130 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Beat - Recuperar Contraseña</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+  <meta charset="UTF-8">
+  <title>Urban Beat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+   body {
+       padding-top: 70px;
+         margin: 0;
+         overflow: hidden;
+      }
+
+      .navbar {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       z-index: 1030;
+       background-color: #f8f9fa;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       align-items: center;
+       min-height: 65px; 
+      }
+
+    .logo-text {
+       font-family: 'Bungee', cursive;
+       font-size: 30px;
+       line-height: 1;
+       margin-left: 25px;
+       margin-top: 3px;
+       color: #3f4f74;
+      }
+
+      .eslogan-text {
+       font-size: 14px;
+       line-height: 1;
+       margin-top: -2px; 
+       margin-left: 27px;
+       color: #666;  
+      }
+
+      .password-reset-form {
+       max-width: 400px;
+       margin: 50px auto;
+       padding: 30px;
+       background-color: #e9ecef;
+       border-radius: 10px;
+       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .login-text {
+       font-weight: bold;
+       text-align: center;
+       font-family: 'Caudex', serif;
+       font-size: 40px;
+       line-height: 1;
+       color: #3d4c6e;
+      }
+
+        .form-control {
+       margin-bottom: 15px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
+        .cambiar-btn {
+       background-color: #3d4c6e;
+       color: #fff;         
+       border: none;
+       padding: 10px 20px;  
+       font-size: 16px;       
+       border-radius: 5px;    
+       cursor: pointer;       
+       width: 100%;              
+       text-align: center; 
         }
 
-        header {
-            text-align: left;
-            margin-bottom: 20px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
+       .link {
+       display: block;
+       text-align: center;
+       margin-top: 10px;
+       color: #007bff;
+       text-decoration: none;
+      }
+
+        .cambiar-btn:hover {
+       background-color: #3d4c6ebe;
         }
 
-        .logo h1 {
-            font-size: 24px;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        .logo p {
-            font-size: 14px;
-            margin: 0;
-            padding: 0;
-            color: #666;
-        }
-
-        .form-container {
-            background-color: #d3d3d3;
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .form-container h2 {
-            margin-top: 0;
-            font-size: 22px;
-            color: #333;
-        }
-
-        .form-container p {
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 15px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #333;
-        }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <h1>Urban Beat</h1>
-            <p>Moda urbana</p>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="form-container">
-            <h2>Recuerda tu contraseña</h2>
-            <p>Ingresa tu Usuario</p>
-            <form id="password-reset-form">
-                <div class="input-group">
-                    <input type="text" placeholder="Usuario" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" placeholder="Contraseña Nueva" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" placeholder="Repetir Contraseña" required>
-                </div>
-                <button type="submit" class="btn">Cambiar contraseña</button>
+  <nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+     <div class="d-flex flex-column">
+        <span class="logo-text">Urban Beat</span>
+    <span class="eslogan-text">Feel the Rhythm</span>
+  </div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  </ul>
+</ul>
+</div>
+  </div>
+</nav>
+  <div class="password-reset-form">      
+    <p class="login-text">Recupera tu contraseña
+    <p class="text-center">Ingresa tu Usuario
+      <form id="password-reset-form">
+<input type="text" id="username" class="form-control" placeholder="Usuario" required/>
+  <input type="password" id="password" class="form-control" placeholder="Contraseña nueva" required/>
+    <input type="password" id="password" class="form-control" placeholder="Repetir contraseña" required/>
+  <button type="submit" class="cambiar-btn">Cambiar contraseña</button>
             </form>
-            <a href="Inicio Sesion Usuario.html" style="display:block; margin-top:20px; color:#007bff; text-decoration:none;">Volver al inicio de sesion</a>
-            <a href="Inicio Colaborador .html" style="display:block; margin-top:20px; color:#007bff; text-decoration:none;">Volver al inicio de sesion colaborador</a>
+            
+            <a href="Inicio Sesion Usuario.html" class="link">Volver al inicio de sesion</a>
+            <a href="Inicio Colaborador.html" class="link">Volver al inicio de sesion colaborador</a>
         </div>
     </div>
 
     <script>
         document.getElementById('password-reset-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+            event.preventDefault();
             alert('Se ha establecido tu nueva contraseña, intenta iniciar sesión de nuevo');
         });
     </script>

@@ -1,76 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Urban Beat</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <title>Urban Beat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+       padding-top: 70px;
+       padding-bottom: 20px;
+       background-color: #eeeeee;
+      }
 
-        button {
-            background-color: #1c4755; 
-            color: black;              
-            border: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 10px;
-        }
-    </style>
+      .navbar {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       z-index: 1030;
+       background-color: #3f4f74;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       align-items: center;
+       min-height: 65px; 
+      }
+
+    .logo-text {
+       font-family: 'Bungee', cursive;
+       font-size: 30px;
+       line-height: 1;
+       margin-left: 25px;
+       margin-top: 3px;
+       color: #f8f9fa;
+      }
+
+      .eslogan-text {
+       font-size: 14px;
+       line-height: 1;
+       margin-top: -2px; 
+       margin-left: 27px;
+       color: #dfdfdf;  
+      }
+
+
+    .bienvenido-text {
+      font-family: 'Caudex', serif;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 30px;
+      color: #000000;
+    }
+
+    .bienvenido-texts {
+      font-family: 'Caudex', serif;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #696969;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 0 50px 60px;
+      flex-grow: 1;
+    }
+
+    .menu-card {
+      background: #ffffff;
+      color: #3f4f74;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 6px 15px #3f4f7491;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      margin: 30px;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      background: #f4f8fb;
+    }
+
+    .menu-card b {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .menu-text {
+      font-size: 15px;
+    }
+
+  </style>
+</head>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+     <div class="d-flex flex-column">
+        <span class="logo-text">Urban Beat</span>
+    <span class="eslogan-text">Feel the Rhythm</span>
+  </div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  </ul>
+</ul>
+</div>
+  </div>
+</nav>
 
-    <!-- Encabezado -->
-    <h1>Urban Beat</h1>
-    <p>Moda Urbana</p>
-    <hr>
+  <div class="bienvenido-text">¡Bienvenido, colaborador!</div>
+  <div class="bienvenido-texts">¿Qué harás el día de hoy?</div>
 
-    <!-- Bienvenida -->
-    <h2>Bienvenido colaborador!</h2>
-    <p>¿Qué harás el día de hoy?</p>
+    <div class="menu-card" onclick="window.open('Cobros.html', '_blank')">
+      <b>Realizar cobros</b>
+      <span class="menu-text">Realice cobros de tiendas físicas</span>
+    </div>
 
-    <!-- Botones funcionales -->
-    <table>
-        <tr>
-            <td>
-    <button onclick="window.open('Cobros.html', '_blank')">
-        <b>Realizar cobros</b><br>
-        Realice cobros de tiendas físicas
-    </button>
-    <br>
-    </a>
-</td>
-            <td>
-                <button onclick="window.open('pedidos.html', '_blank')">
-                    <b>Pedidos</b><br>
-                    Revisa los pedidos vigentes
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button onclick="window.open('stock.html', '_blank')">
-                    <b>Revisar stock</b><br>
-                    Revisa la disponibilidad de producto
-                </button>
-            </td>
-            <td>
-                <button onclick="window.open('factura.html', '_blank')">
-                    <b>Facturas</b><br>
-                    Consulta facturas
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button onclick="window.open('Clientes.html', '_blank')">
-                    <b>Clientes</b><br>
-                    Revisa la base de datos de los clientes
-                </button>
-            </td>
-        </tr>
-    </table>
+    <div class="menu-card" onclick="window.open('pedidos.html', '_blank')">
+      <b>Pedidos</b>
+      <span class="menu-text">Revisa los pedidos vigentes</span>
+    </div>
 
-</body>
-</html>
+    <div class="menu-card" onclick="window.open('stock.html', '_blank')">
+      <b>Revisar stock</b>
+      <span class="menu-text">Revisa la disponibilidad de producto</span>
+    </div>
+    
+    <div class="menu-card" onclick="window.open('factura.html', '_blank')">
+      <b>Facturas</b>
+      <span class="menu-text">Consulta facturas</span>
+    </div>
+
+    <div class="menu-card" onclick="window.open('Clientes.html', '_blank')">
+      <b>Clientes</b>
+      <span class="menu-text">Revisa la base de datos de los clientes</span>
+    </div>
