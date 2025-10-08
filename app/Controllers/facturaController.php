@@ -1,69 +1,56 @@
 <?php
-    namespace App\Controllers;
- 
-use App\Models\Factura;
-use CodeIgniter\Controller;
- 
-    class facturaController extends BaseController{
-        public function verFacturas(){
-            $factura = new Factura();
-            $datosBD['datosBD'] = $factura->findAll();
-            return view('menuFacturas',$datosBD);
-        }
- 
-    public function guardarFactura(){
-            $factura_id = $this->request->getVar('txt_factura_id');
-            $fecha = $this->request->getVar('txt_fecha');
-            $estado = $this->request->getVar('txt_estado');
-            $cantidad = $this->request->getVar('txt_cantidad');
-            $usuario_id = $this->request->getVar('txt_usuario_id');
-            $producto_id = $this->request->getVar('txt_producto_id');
-            $metodo_id = $this->request->getVar('txt_metodo_id');
- 
-           $factura = new Factura();
-            $datos=['factura_id'=>$factura_id,    
-                    'fecha'=>$fecha,
-                    'estado'=>$estado,
-                    'cantidad'=>$cantidad,
-                    'usuario_id'=>$usuario_id,
-                    'producto_id'=>$producto_id,
-                    'metodo_id'=>$metodo_id
-                    ];              
-            $factura->insert($datos);
-            return $this->verFacturas();
-            }
+require_once __DIR__ . '/../models/factura.php';
+require('../vendor/fpdf/fpdf.php'); // Asegúrate de tener FPDF instalado
 
-        public function eliminarFactura($id_factura=null){
-            $factura = new Factura();
-            $factura->delete($id_factura);
-            return $this->verFacturas();
+class FacturaController {
+
+    public static function agregar() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $usuario_id = $_POST["usuario_id"];
+            $producto_id = $_POST["producto_id"];
+            $metodo_id = $_POST["metodo_id"] ?? 1; // Por defecto: 1 (ej. efectivo)
+            $cantidad = $_POST["cantidad"];
+
+            factura::agregarProducto($usuario_id, $producto_id, $metodo_id, $cantidad);
+
+            header("Location: ../views/carrito.php?usuario_id=$usuario_id");
+            exit;
         }
- 
-        public function localizarFactura($id_factura=null){  
-            $factura = new Factura();
-            $datosFactura['datosFactura']=$factura->where('factura_id',$id_factura)->first();
-            return view('frm_actualizarFactura',$datosFactura);  
-        }
-   
-        public function modificarFactura(){
-            $factura_id = $this->request->getVar('txt_factura_id');
-            $fecha = $this->request->getVar('txt_fecha');
-            $estado = $this->request->getVar('txt_estado');
-            $cantidad = $this->request->getVar('txt_cantidad');
-            $usuario_id = $this->request->getVar('txt_usuario_id');
-            $producto_id = $this->request->getVar('txt_producto_id');
-            $metodo_id = $this->request->getVar('txt_metodo_id');
- 
-           $factura = new Factura();
-            $datos=['factura_id'=>$factura_id,    
-                    'fecha'=>$fecha,
-                    'estado'=>$estado,
-                    'cantidad'=>$cantidad,
-                    'usuario_id'=>$usuario_id,
-                    'producto_id'=>$producto_id,
-                    'metodo_id'=>$metodo_id
-                    ];              
-            $factura->update($factura_id,$datos);
-            return $this->verFacturas();
-            }
     }
+
+    public static function confirmar() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $usuario_id = $_POST["usuario_id"];
+            factura::confirmarCompra($usuario_id);
+            header("Location: ../views/compra_exitosa.php");
+            exit;
+        }
+         }
+
+    public static function confirmar() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $usuario_id = $_POST["usuario_id"];
+            factura::confirmarCompra($usuario_id);
+            header("Location: ../views/compra_exitosa.php");
+            exit;
+        }
+    }
+
+    public function generarFactura($productos, $total, $usuario_id)
+    {
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(40,10,'Factura Urban Beat');
+        $pdf->Ln(10);
+
+        foreach ($productos as $p) {
+            $pdf->Cell(0,10,"{$p['nombre']} x{$p['cantidad']} Q{$p['precio']}",0,1);
+        }
+        $pdf->Ln(10);
+        $pdf->Cell(0,10,"Total: Q{$total}",0,1);
+
+        $pdf->Output();
+    }
+}
+?>

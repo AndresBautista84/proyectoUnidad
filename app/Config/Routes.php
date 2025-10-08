@@ -56,3 +56,6 @@ $routes->get('/eliminarUsuario/(:num)', 'usuarioController::eliminarUsuario
 $routes->get('/localizarUsuario/(:num)', 'usuarioController::localizarUsuario
 /$1');
 $routes->post('/modificarUsuario', 'usuarioController::modificarUsuario');
+
+//rutas para factura agregar
+$routes->get('/detalleFactura/(:num)', 'facturaController::detalleFactura/$1');
